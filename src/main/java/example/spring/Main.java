@@ -1,13 +1,26 @@
 package example.spring;
 
+import example.spring.components.Park;
+import example.spring.components.Watchman;
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 
 public class Main {
     public static void main(String[] args) {
-        example1();
+        //example1();
       //  example2();
+        example3();
+    }
 
+    private static void example3() {
+        ApplicationContext context = new AnnotationConfigApplicationContext(AppConfig3.class);
+        Park p = context.getBean("centralPark", Park.class);
+        System.out.println("p = " + p);
+        Watchman w = context.getBean("mainWatchman", Watchman.class);
+        System.out.println("w = " + w);
+
+        p.doNoise();
+        p.walkOnTheGrass();
     }
 
     private static void example2() {
@@ -23,7 +36,7 @@ public class Main {
 
     private static void example1() {
         ApplicationContext context  = new AnnotationConfigApplicationContext(AppConfig1.class);
-        //класс AppConfig1 содержит несявязанные между собой объекты "park1", "watchman1"
+        //класс AppConfig1 содержит несвязанные между собой объекты "park1", "watchman1"
         Park p = context.getBean("park1", Park.class);
         System.out.println("p = " + p);
         Watchman w = context.getBean("watchman1", Watchman.class);

@@ -1,15 +1,17 @@
-package example.spring;
+package example.spring.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-//@Component("mainWatchman")
+@Component("mainWatchman")
 public class Watchman {
     String name;
     @Autowired
     private Park park;
 
-    public Watchman(String name) {
+    @Autowired
+    public Watchman(@Value("Шашкин") String name) {
         this.name = name;
         System.out.println("работает конструктор Сторожа");
     }

@@ -1,5 +1,7 @@
 package example.spring;
 
+import example.spring.components.Park;
+import example.spring.components.Watchman;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 

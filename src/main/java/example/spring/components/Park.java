@@ -1,11 +1,12 @@
-package example.spring;
+package example.spring.components;
 
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.beans.factory.annotation.Qualifier;
+import org.springframework.beans.factory.annotation.Value;
 import org.springframework.stereotype.Component;
 
-//@Component("centralPark")
+@Component("centralPark")
 public class Park {
+
     int id;
     //ссылка на сторожа
     @Autowired
@@ -30,8 +31,8 @@ public class Park {
         else
             System.out.println("продолжается вытаптывание");
     }
-
-    public Park(int id) {
+    @Autowired
+    public Park( @Value("321") int id) {
         this.id = id;
         System.out.println("работает конструктор Парка");
     }
