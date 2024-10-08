@@ -1,11 +1,15 @@
 package example.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.beans.factory.annotation.Qualifier;
 import org.springframework.stereotype.Component;
 
-@Component("centralPark")
+//@Component("centralPark")
 public class Park {
     int id;
     //ссылка на сторожа
+    @Autowired
+   // @Qualifier("watchmanA")
     Watchman watchman;
 
     public void doNoise(){

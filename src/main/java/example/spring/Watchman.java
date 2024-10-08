@@ -1,10 +1,12 @@
 package example.spring;
 
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Component;
 
-@Component("mainWatchman")
+//@Component("mainWatchman")
 public class Watchman {
     String name;
+    @Autowired
     private Park park;
 
     public Watchman(String name) {
